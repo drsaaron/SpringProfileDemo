@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.blazartech.springprofiledemo;
 
@@ -14,21 +13,20 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author AAR1069
+ * @author aar1069
  */
 @Component
-@Profile("integration | test")
-public class NamePABImpl implements NamePAB {
-
-    private static final Logger log = LoggerFactory.getLogger(NamePABImpl.class);
+@Profile("prod")
+public class NamePABProdImpl implements NamePAB {
+    
+    private static final Logger log = LoggerFactory.getLogger(NamePABProdImpl.class);
     
     @Autowired
     private NameRetriever retriever;
     
     @Override
     public String getName() {
-        log.info("getting name for either integration or test profile");
+        log.info("getting name in prod profile");
         return retriever.retrieveName();
     }
-    
 }

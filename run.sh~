@@ -1,0 +1,5 @@
+#! /bin/sh
+
+jarFile=target/$(getPomAttribute.sh artifactId)-$(getPomAttribute.sh version).jar
+
+java -jar $jarFile -Dspring.profiles.active=integration
