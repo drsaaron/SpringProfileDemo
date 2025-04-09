@@ -2,5 +2,11 @@
 
 jarFile=target/$(getPomAttribute.sh artifactId)-$(getPomAttribute.sh version).jar
 
-java -jar $jarFile --spring.profiles.active=integration
-java -jar $jarFile --spring.profiles.active=prod
+runJar() {
+    profile=$1
+
+    java -jar $jarFile --spring.profiles.active=$profile
+}
+
+runJar integration
+runJar prod
